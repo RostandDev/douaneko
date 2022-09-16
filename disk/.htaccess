@@ -1,0 +1,14 @@
+#
+# 
+# Auteur : ABOTCHI Kodjo Mawugno
+# 
+# 
+# date : 2022-08-15
+#
+
+RewriteEngine On # Activer le module Rewrite
+
+
+#options -indexes
+#deny from all
+
