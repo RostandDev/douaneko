@@ -1,0 +1,15 @@
+
+RewriteEngine On # Activer le module Rewrite
+
+RewriteRule ^trashs$ controllers/trash.php [L]
+RewriteRule ^maps$ controllers/maps.php?maps [L]
+RewriteRule ^status$ controllers/status.php [L]
+RewriteRule ^login$ controllers/login.php [L]
+RewriteRule ^reporters$ controllers/reporter.php [L]
+RewriteRule ^reporting$ controllers/reporting.php [L]
+RewriteRule ^tiddadmins$ controllers/tiddadministrator.php [L]
+RewriteRule ^cityhalls$ controllers/cityhall.php [L]
+RewriteRule ^programs$ controllers/program.php [L]
+RewriteRule ^cityhalladmins$ controllers/cityHallAdministrator.php [L]
+RewriteRule ^test$ controllers/test.php [L]
+#RewriteRule ^.+$ 404.php [L]
