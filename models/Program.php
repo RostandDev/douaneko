@@ -139,7 +139,7 @@ class Program extends DB{
 
     public function _getByCityHall( $_city ){
         
-        $data = $this -> _query(" SELECT _id FROM t_programs WHERE  = '$_city' ");
+        $data = $this -> _query(" SELECT t_programs.*, t_cityHalls._name as _cityHall FROM t_programs INNER JOIN t_programsCityHalls ON t_programs._id =  t_programsCityHalls._program INNER JOIN t_cityHalls ON t_cityHalls._id = t_programsCityHalls._city_hall WHERE  t_programsCityHalls._city_hall= '$_city' ");
 
         if($data['status'] == !0){
             return [

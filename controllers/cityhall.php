@@ -1,6 +1,4 @@
 <?php
-
-
     /*
     * Stagaires TIDD 2022
     * Auteur : ABOTCHI Kodjo Mawugno
@@ -9,14 +7,14 @@
     * date : 2022-08-24
     *
     */
+    header("Access-Control-Allow-Origin: *");
+    header("content-type: application/json");
+    require_once("../core/autoloader.php");
+
 
     use core\Auth;
     use core\Uuid;
     use models\CityHall;
-
-    header("Access-Control-Allow-Origin: *");
-    header("content-type: application/json");
-    require_once("../core/autoloader.php");
 
     $api = (new Env())->_get_api();
     $access = (new Auth($token))->_access();
@@ -53,7 +51,7 @@
                     "_postal_code" =>  htmlspecialchars($_POST['_postal_code']), 
                     "_telephone" => htmlspecialchars( $_POST['_telephone']), 
                     "_prefecture" => htmlspecialchars( $_POST['_prefecture']), 
-                    "_author" => intval(htmlspecialchars( $_POST['_author']))
+                    "_author" => (new Auth($token))->_id()
                 ]);
 
 
@@ -88,7 +86,7 @@
                 "_postal_code" =>  htmlspecialchars($_POST['_postal_code']), 
                 "_telephone" => htmlspecialchars( $_POST['_telephone']), 
                 "_prefecture" => htmlspecialchars( $_POST['_prefecture']), 
-                "_author" => intval(htmlspecialchars( $_POST['_author'])),
+                "_author" => (new Auth($token))->_id(),
                 '_id' => intval(htmlspecialchars($_POST['_id']))   
                 
             ]);

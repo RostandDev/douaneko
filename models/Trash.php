@@ -140,7 +140,7 @@ class Trash extends DB{
 
     public function _getByCityHall( $_city ){
         
-        $data = $this -> _query(" SELECT _id FROM t_programs WHERE  = '$_city' ");
+        $data = $this -> _query(" SELECT t_trashs.*, t_cityHalls._name as _cityHall FROM t_trashs INNER JOIN t_trashsCityHalls ON t_trashs._id =  t_trashsCityHalls._trash INNER JOIN t_cityHalls ON t_cityHalls._id = t_trashsCityHalls._city_hall WHERE  t_trashsCityHalls._city_hall= '$_city' ");
 
         if($data['status'] == !0){
             return [
@@ -152,7 +152,7 @@ class Trash extends DB{
 
     public function _getByTidd(  ){
         
-        $data = $this -> _query(" SELECT _id FROM t_programs WHERE   ");
+        $data = $this -> _query(" SELECT _id FROM t_trashs WHERE   ");
 
         if($data['status'] == !0){
             return [
@@ -164,7 +164,7 @@ class Trash extends DB{
 
     public function _getByName($_name){
         
-        $data = $this -> _query(" SELECT * FROM t_programs WHERE _name LIKE '$_name' ");
+        $data = $this -> _query(" SELECT * FROM t_trashs WHERE _name LIKE '$_name' ");
 
         if($data['status'] == !0){
             return [

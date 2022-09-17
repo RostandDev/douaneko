@@ -57,11 +57,17 @@ use models\Trash;
 
     if($_SERVER['REQUEST_METHOD'] == "GET"){
 
-        $data = (new Trashstatus())->_get();
+        $data = (new Trashstatus())->_get()['data'];
         if(isset($_GET['id'])) $data = (new Trashstatus())->_getById(intval(htmlspecialchars($_GET['id'])))['data'];
         if(isset($_GET['trash'])) $data = (new Trashstatus())->_getByTrash(intval(htmlspecialchars($_GET['trash'])))['data'];
 
-        print_r(json_encode($data) ) ;
+        $response = [
+            "meta" => $api,
+            "status"=> "OK",
+            "content" => $data
+        ];
+
+        echo json_encode($response);
     }
 
 ?>

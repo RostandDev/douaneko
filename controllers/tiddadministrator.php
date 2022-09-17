@@ -23,7 +23,7 @@
     if($access != "editor" || $user !="tidd"){
         $response = [
             "meta" => $api,
-            "satus" => "403_FORBIDDEN"
+            "satus" => "ACCESS_DENIED"
         ];
         print_r(json_encode($response)) ;
 

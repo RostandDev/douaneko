@@ -94,6 +94,12 @@
           return $user;
         }
 
+        public function _id(){
+          $user = $this->_extract()['data']['_id'];
+
+          return $user;
+        }
+
 
         /*
 

@@ -115,11 +115,12 @@
 
         if($_SERVER['REQUEST_METHOD']== 'GET'){
 
-            if(isset($_GET['city_hall'])){
-                $data = (new Trash())->_getByCityHall(['_id' => intval(htmlspecialchars($_GET['cityHall']))])['data'];
-            }
+
 
             if(isset($_GET['trashs'])){
+                if(isset($_GET['city_hall'])){
+                    $data = (new Trash())->_getByCityHall(['_id' => intval(htmlspecialchars($_GET['cityHall']))])['data'];
+                }
                 if(isset($_GET['id'])){
                     $data = (new Trash())->_getById(['_id' => intval(htmlspecialchars($_GET['id']))])['data'];
                 }
